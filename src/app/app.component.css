@@ -1,0 +1,8 @@
+.border {
+  border-left: 2px solid grey;
+}
+
+.border-blue {
+  border: 2px solid rgba(27, 130, 204, 0.466);
+  border-radius: 5px;
+}

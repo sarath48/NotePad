@@ -1,12 +1,15 @@
 <div class="container-fluid bg-primary">
-  <h1 class="text-white text-center">Notepad</h1>
+  <h1 class="text-white text-center p-2">Notepad</h1>
 </div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-4 border">
-      <h3>notes list</h3>
-      <div class="shadow p-3 mb-5 bg-body rounded">Regular shadow</div>
-      <button type="button">
+      <div *ngIf="notesArray.length > 0">
+        <p class="shadow p-3 bg-body rounded" *ngFor="let notes of notesArray">
+          {{ notesArray }}
+        </p>
+      </div>
+      <!-- <button type="button">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -22,13 +25,34 @@
             d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
           />
         </svg>
-      </button>
+      </button> -->
     </div>
     <div class="col-8">
       <div>
-        <textarea class="form-control border-blue" aria-label="With textarea"></textarea>
-        <button type="button" class="btn btn-success">Save</button>
-        <button type="button" class="btn btn-danger">Remove</button>
+        <textarea
+          class="form-control border-blue"
+          aria-label="With textarea"
+          placeholder="add a note"
+          cols="30"
+          rows="10"
+          [(ngModel)]="inputNotes"
+          required
+        ></textarea>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="updateNotesArray()"
+          [disabled]="inputNotes.length <= 0"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteInputNotes()"
+        >
+          Remove
+        </button>
       </div>
     </div>
   </div>

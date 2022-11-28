@@ -1,4 +1,8 @@
 # Notepad
+ 
+You can add multipe notes.
+
+workflow --- enter the notes you want to add and then submit it
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
